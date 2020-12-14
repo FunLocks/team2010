@@ -11,15 +11,19 @@
 		36AAE2172586206E00D053D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AAE2162586206E00D053D1 /* ContentView.swift */; };
 		36AAE2192586206F00D053D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AAE2182586206F00D053D1 /* Assets.xcassets */; };
 		36AAE21C2586206F00D053D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AAE21B2586206F00D053D1 /* Preview Assets.xcassets */; };
+		E61D4B1ABF92460B620CD8FF /* Pods_Nikolaos_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C292BBF81A8B60D11F854C /* Pods_Nikolaos_SwiftUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08C292BBF81A8B60D11F854C /* Pods_Nikolaos_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nikolaos_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E8D0C154897FF59E3FE056B /* Pods-Nikolaos_SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nikolaos_SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		36AAE2112586206E00D053D1 /* Nikolaos_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nikolaos_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36AAE2142586206E00D053D1 /* Nikolaos_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nikolaos_SwiftUIApp.swift; sourceTree = "<group>"; };
 		36AAE2162586206E00D053D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		36AAE2182586206F00D053D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36AAE21B2586206F00D053D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		36AAE21D2586206F00D053D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B81C92B65D6F1E81C1F063A7 /* Pods-Nikolaos_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nikolaos_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E61D4B1ABF92460B620CD8FF /* Pods_Nikolaos_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,8 @@
 			children = (
 				36AAE2132586206E00D053D1 /* Nikolaos_SwiftUI */,
 				36AAE2122586206E00D053D1 /* Products */,
+				F7B4683BFC4F514D0FAB1711 /* Pods */,
+				48F37CB67C15FC4BFFE9B5BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +76,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		48F37CB67C15FC4BFFE9B5BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08C292BBF81A8B60D11F854C /* Pods_Nikolaos_SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7B4683BFC4F514D0FAB1711 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E8D0C154897FF59E3FE056B /* Pods-Nikolaos_SwiftUI.debug.xcconfig */,
+				B81C92B65D6F1E81C1F063A7 /* Pods-Nikolaos_SwiftUI.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -76,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36AAE2202586206F00D053D1 /* Build configuration list for PBXNativeTarget "Nikolaos_SwiftUI" */;
 			buildPhases = (
+				ADD533F51F55A3F35A1B4189 /* [CP] Check Pods Manifest.lock */,
 				36AAE20D2586206E00D053D1 /* Sources */,
 				36AAE20E2586206E00D053D1 /* Frameworks */,
 				36AAE20F2586206E00D053D1 /* Resources */,
+				04289B10B580BB6EC9D4F852 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04289B10B580BB6EC9D4F852 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADD533F51F55A3F35A1B4189 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nikolaos_SwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		36AAE20D2586206E00D053D1 /* Sources */ = {
@@ -264,6 +333,7 @@
 		};
 		36AAE2212586206F00D053D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E8D0C154897FF59E3FE056B /* Pods-Nikolaos_SwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -286,6 +356,7 @@
 		};
 		36AAE2222586206F00D053D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B81C92B65D6F1E81C1F063A7 /* Pods-Nikolaos_SwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
