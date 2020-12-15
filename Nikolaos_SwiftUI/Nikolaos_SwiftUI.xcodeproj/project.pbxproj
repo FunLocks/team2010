@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		363D467A25884D2C002B8A8B /* OfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D467925884D2C002B8A8B /* OfferView.swift */; };
+		363D467E25884D41002B8A8B /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D467D25884D41002B8A8B /* CameraView.swift */; };
+		363D468425884D63002B8A8B /* OfferingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D468325884D63002B8A8B /* OfferingListView.swift */; };
+		363D468725884DC0002B8A8B /* ReservingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D468625884DC0002B8A8B /* ReservingListView.swift */; };
 		36AAE2152586206E00D053D1 /* Nikolaos_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AAE2142586206E00D053D1 /* Nikolaos_SwiftUIApp.swift */; };
 		36AAE2172586206E00D053D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AAE2162586206E00D053D1 /* ContentView.swift */; };
 		36AAE2192586206F00D053D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AAE2182586206F00D053D1 /* Assets.xcassets */; };
@@ -19,6 +23,10 @@
 /* Begin PBXFileReference section */
 		08C292BBF81A8B60D11F854C /* Pods_Nikolaos_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nikolaos_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E8D0C154897FF59E3FE056B /* Pods-Nikolaos_SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nikolaos_SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		363D467925884D2C002B8A8B /* OfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferView.swift; sourceTree = "<group>"; };
+		363D467D25884D41002B8A8B /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		363D468325884D63002B8A8B /* OfferingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferingListView.swift; sourceTree = "<group>"; };
+		363D468625884DC0002B8A8B /* ReservingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservingListView.swift; sourceTree = "<group>"; };
 		36AAE2112586206E00D053D1 /* Nikolaos_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nikolaos_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36AAE2142586206E00D053D1 /* Nikolaos_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nikolaos_SwiftUIApp.swift; sourceTree = "<group>"; };
 		36AAE2162586206E00D053D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -42,6 +50,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		363D467525884CC7002B8A8B /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				363D467D25884D41002B8A8B /* CameraView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		363D467625884CCE002B8A8B /* OfferingList */ = {
+			isa = PBXGroup;
+			children = (
+				363D468325884D63002B8A8B /* OfferingListView.swift */,
+			);
+			path = OfferingList;
+			sourceTree = "<group>";
+		};
+		363D467725884CEA002B8A8B /* Offer */ = {
+			isa = PBXGroup;
+			children = (
+				363D467925884D2C002B8A8B /* OfferView.swift */,
+			);
+			path = Offer;
+			sourceTree = "<group>";
+		};
+		363D467825884CFD002B8A8B /* ReservingList */ = {
+			isa = PBXGroup;
+			children = (
+				363D468625884DC0002B8A8B /* ReservingListView.swift */,
+			);
+			path = ReservingList;
+			sourceTree = "<group>";
+		};
 		36AAE2082586206E00D053D1 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +108,10 @@
 				5FE05E6E2587975C001291BA /* ItemModel.swift */,
 				36AAE2162586206E00D053D1 /* ContentView.swift */,
 				36AAE2182586206F00D053D1 /* Assets.xcassets */,
+				363D467725884CEA002B8A8B /* Offer */,
+				363D467525884CC7002B8A8B /* Camera */,
+				363D467825884CFD002B8A8B /* ReservingList */,
+				363D467625884CCE002B8A8B /* OfferingList */,
 				36AAE21D2586206F00D053D1 /* Info.plist */,
 				36AAE21A2586206F00D053D1 /* Preview Content */,
 			);
@@ -215,7 +259,11 @@
 			files = (
 				36AAE2172586206E00D053D1 /* ContentView.swift in Sources */,
 				5FE05E6F2587975C001291BA /* ItemModel.swift in Sources */,
+				363D467A25884D2C002B8A8B /* OfferView.swift in Sources */,
 				36AAE2152586206E00D053D1 /* Nikolaos_SwiftUIApp.swift in Sources */,
+				363D468425884D63002B8A8B /* OfferingListView.swift in Sources */,
+				363D468725884DC0002B8A8B /* ReservingListView.swift in Sources */,
+				363D467E25884D41002B8A8B /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
