@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,9 +15,14 @@
 		36AAE2172586206E00D053D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AAE2162586206E00D053D1 /* ContentView.swift */; };
 		36AAE2192586206F00D053D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AAE2182586206F00D053D1 /* Assets.xcassets */; };
 		36AAE21C2586206F00D053D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AAE21B2586206F00D053D1 /* Preview Assets.xcassets */; };
+		5FE05E4C2587903C001291BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FE05E4B2587903C001291BA /* GoogleService-Info.plist */; };
+		5FE05E6F2587975C001291BA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05E6E2587975C001291BA /* ItemModel.swift */; };
+		E61D4B1ABF92460B620CD8FF /* Pods_Nikolaos_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C292BBF81A8B60D11F854C /* Pods_Nikolaos_SwiftUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08C292BBF81A8B60D11F854C /* Pods_Nikolaos_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nikolaos_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E8D0C154897FF59E3FE056B /* Pods-Nikolaos_SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nikolaos_SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		363D467925884D2C002B8A8B /* OfferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferView.swift; sourceTree = "<group>"; };
 		363D467D25884D41002B8A8B /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		363D468325884D63002B8A8B /* OfferingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferingListView.swift; sourceTree = "<group>"; };
@@ -28,6 +33,9 @@
 		36AAE2182586206F00D053D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36AAE21B2586206F00D053D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		36AAE21D2586206F00D053D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FE05E4B2587903C001291BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5FE05E6E2587975C001291BA /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		B81C92B65D6F1E81C1F063A7 /* Pods-Nikolaos_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nikolaos_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E61D4B1ABF92460B620CD8FF /* Pods_Nikolaos_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,8 @@
 			children = (
 				36AAE2132586206E00D053D1 /* Nikolaos_SwiftUI */,
 				36AAE2122586206E00D053D1 /* Products */,
+				F7B4683BFC4F514D0FAB1711 /* Pods */,
+				48F37CB67C15FC4BFFE9B5BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,7 +103,9 @@
 		36AAE2132586206E00D053D1 /* Nikolaos_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				5FE05E4B2587903C001291BA /* GoogleService-Info.plist */,
 				36AAE2142586206E00D053D1 /* Nikolaos_SwiftUIApp.swift */,
+				5FE05E6E2587975C001291BA /* ItemModel.swift */,
 				36AAE2162586206E00D053D1 /* ContentView.swift */,
 				36AAE2182586206F00D053D1 /* Assets.xcassets */,
 				363D467725884CEA002B8A8B /* Offer */,
@@ -113,6 +126,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		48F37CB67C15FC4BFFE9B5BA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08C292BBF81A8B60D11F854C /* Pods_Nikolaos_SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7B4683BFC4F514D0FAB1711 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0E8D0C154897FF59E3FE056B /* Pods-Nikolaos_SwiftUI.debug.xcconfig */,
+				B81C92B65D6F1E81C1F063A7 /* Pods-Nikolaos_SwiftUI.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 36AAE2202586206F00D053D1 /* Build configuration list for PBXNativeTarget "Nikolaos_SwiftUI" */;
 			buildPhases = (
+				ADD533F51F55A3F35A1B4189 /* [CP] Check Pods Manifest.lock */,
 				36AAE20D2586206E00D053D1 /* Sources */,
 				36AAE20E2586206E00D053D1 /* Frameworks */,
 				36AAE20F2586206E00D053D1 /* Resources */,
+				04289B10B580BB6EC9D4F852 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -172,10 +204,53 @@
 			files = (
 				36AAE21C2586206F00D053D1 /* Preview Assets.xcassets in Resources */,
 				36AAE2192586206F00D053D1 /* Assets.xcassets in Resources */,
+				5FE05E4C2587903C001291BA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04289B10B580BB6EC9D4F852 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ADD533F51F55A3F35A1B4189 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Nikolaos_SwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		36AAE20D2586206E00D053D1 /* Sources */ = {
@@ -183,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36AAE2172586206E00D053D1 /* ContentView.swift in Sources */,
+				5FE05E6F2587975C001291BA /* ItemModel.swift in Sources */,
 				363D467A25884D2C002B8A8B /* OfferView.swift in Sources */,
 				36AAE2152586206E00D053D1 /* Nikolaos_SwiftUIApp.swift in Sources */,
 				363D468425884D63002B8A8B /* OfferingListView.swift in Sources */,
@@ -312,12 +388,13 @@
 		};
 		36AAE2212586206F00D053D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E8D0C154897FF59E3FE056B /* Pods-Nikolaos_SwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Nikolaos_SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = GKGCGLMD73;
+				DEVELOPMENT_TEAM = 6YBW4DU99C;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Nikolaos_SwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -325,7 +402,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Yoshikawa.Nikolaos-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Nitta.Nikolaos-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -334,12 +411,13 @@
 		};
 		36AAE2222586206F00D053D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B81C92B65D6F1E81C1F063A7 /* Pods-Nikolaos_SwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Nikolaos_SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = GKGCGLMD73;
+				DEVELOPMENT_TEAM = 6YBW4DU99C;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Nikolaos_SwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -347,7 +425,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Yoshikawa.Nikolaos-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Nitta.Nikolaos-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
