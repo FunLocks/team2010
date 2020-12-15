@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,8 @@
 		36AAE2172586206E00D053D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AAE2162586206E00D053D1 /* ContentView.swift */; };
 		36AAE2192586206F00D053D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AAE2182586206F00D053D1 /* Assets.xcassets */; };
 		36AAE21C2586206F00D053D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AAE21B2586206F00D053D1 /* Preview Assets.xcassets */; };
+		5FE05E4C2587903C001291BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FE05E4B2587903C001291BA /* GoogleService-Info.plist */; };
+		5FE05E6F2587975C001291BA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05E6E2587975C001291BA /* ItemModel.swift */; };
 		E61D4B1ABF92460B620CD8FF /* Pods_Nikolaos_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C292BBF81A8B60D11F854C /* Pods_Nikolaos_SwiftUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,8 @@
 		36AAE2182586206F00D053D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36AAE21B2586206F00D053D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		36AAE21D2586206F00D053D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FE05E4B2587903C001291BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5FE05E6E2587975C001291BA /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		B81C92B65D6F1E81C1F063A7 /* Pods-Nikolaos_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nikolaos_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,7 +63,9 @@
 		36AAE2132586206E00D053D1 /* Nikolaos_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				5FE05E4B2587903C001291BA /* GoogleService-Info.plist */,
 				36AAE2142586206E00D053D1 /* Nikolaos_SwiftUIApp.swift */,
+				5FE05E6E2587975C001291BA /* ItemModel.swift */,
 				36AAE2162586206E00D053D1 /* ContentView.swift */,
 				36AAE2182586206F00D053D1 /* Assets.xcassets */,
 				36AAE21D2586206F00D053D1 /* Info.plist */,
@@ -90,7 +96,6 @@
 				0E8D0C154897FF59E3FE056B /* Pods-Nikolaos_SwiftUI.debug.xcconfig */,
 				B81C92B65D6F1E81C1F063A7 /* Pods-Nikolaos_SwiftUI.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -155,6 +160,7 @@
 			files = (
 				36AAE21C2586206F00D053D1 /* Preview Assets.xcassets in Resources */,
 				36AAE2192586206F00D053D1 /* Assets.xcassets in Resources */,
+				5FE05E4C2587903C001291BA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36AAE2172586206E00D053D1 /* ContentView.swift in Sources */,
+				5FE05E6F2587975C001291BA /* ItemModel.swift in Sources */,
 				36AAE2152586206E00D053D1 /* Nikolaos_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,7 +346,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Nikolaos_SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = GKGCGLMD73;
+				DEVELOPMENT_TEAM = 6YBW4DU99C;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Nikolaos_SwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -347,7 +354,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Yoshikawa.Nikolaos-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Nitta.Nikolaos-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -362,7 +369,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Nikolaos_SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = GKGCGLMD73;
+				DEVELOPMENT_TEAM = 6YBW4DU99C;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Nikolaos_SwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -370,7 +377,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Yoshikawa.Nikolaos-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Nitta.Nikolaos-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
