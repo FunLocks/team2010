@@ -36,8 +36,8 @@ class ItemModel: ObservableObject {
         self.db = Firestore.firestore()
     }
 //   募集新規登録
-    func create(items:Array<Item>){
-        var nikolaosNumber:String = "1017125" // ログイン時に取得できるので，その変数を使いたい
+    func create(items:Array<Item>, nikolaosNumber:String){
+//        var nikolaosNumber:String = "1017125" // ログイン時に取得できるので，その変数を使いたい
         for i in items{
             db.collection("locker").document(nikolaosNumber).collection("item").document().setData([
                 "itemname":i.itemname,//"テスト解答2",
@@ -48,28 +48,22 @@ class ItemModel: ObservableObject {
         }
     }
     
-    
-//    create 使い方
-//    func setTest() -> String{
-//        var testItem = Item(itemname:"テスト解答", count:3, mynumber:["1017000"])
-//        var testItem2 = Item(itemname:"100cm定規", count:1, mynumber:[])
-//        var testItemList:Array<Item> = []
-//        testItemList.append(testItem!)
-//        testItemList.append(testItem2!)
-//        create(items:testItemList)
-//        return "set test"
-//    }
-//
-    
+
+    func createTest() -> String{
+        var testItem = Item(itemname:"テスト解答", count:3, mynumber:["1017000"])
+        var testItem2 = Item(itemname:"100cm定規", count:1, mynumber:[])
+        var testItemList:Array<Item> = []
+        testItemList.append(testItem!)
+        testItemList.append(testItem2!)
+        create(items:testItemList, nikolaosNumber: "1017177")
+        return "set test"
+    }
     
 //    募集一覧
     func read(){
 //        var r: String = "firebase test"
         db = Firestore.firestore()
-        
-
         var nikolaosNumberList: Array<String> = []
-        
         db.collection("locker").getDocuments() {
             (querySnapshot, err) in
             if err != nil {
@@ -133,10 +127,9 @@ class ItemModel: ObservableObject {
                 }
             }
         }
-//        return "firebase test"
     }
     
-    
+   
     // 受取物品選択画面の表示
     func readToSelect(nikolaosNumber:String){
         db.collection("locker").document(nikolaosNumber).collection("item").getDocuments(){
@@ -153,7 +146,6 @@ class ItemModel: ObservableObject {
                     else{
                         print("itemのOptional外し失敗")
                         return}
-                    
                     guard let itemName = items["itemname"]as? String else {
                         print("itemnameのOptional外し失敗")
                         return }
