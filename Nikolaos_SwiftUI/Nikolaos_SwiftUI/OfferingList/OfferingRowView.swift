@@ -9,7 +9,20 @@ import SwiftUI
 
 struct OfferingRowView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 0.0) {
+            Text("30cm定規 ×1")
+                .multilineTextAlignment(.leading)
+            Text("カッター ×1")
+                .multilineTextAlignment(.leading)
+            Text("ガムテープ ×1")
+            Text("体育館横　1017XXX")
+                .font(.footnote)
+                .padding(.leading, 220.0)
+                .frame(width: 400.0)
+                .multilineTextAlignment(.trailing)
+        }
+        .padding()
+        .frame(width: 400.0, height: 100.0, alignment: .topLeading)
     }
 }
 
