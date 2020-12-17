@@ -63,24 +63,24 @@ class ItemModel: ObservableObject {
     
     
 //    募集一覧
-    func read() -> String{
-        var r: String = "firebase test"
+    func read() {
+//        var r: String = "firebase test"
         db = Firestore.firestore()
         var offerList:Array<Locker> = []
         var nikolaosNumberList: Array<String> = []
         
         db.collection("locker").getDocuments() {
             (querySnapshot, err) in
-            if let err = err {
+            if err != nil {
                 print("Error getting documents: (err)")
             } else {
                 for document in querySnapshot!.documents {
-                    var nikolaos_number:String = document.documentID
+                    let nikolaos_number:String = document.documentID
                     nikolaosNumberList.append(nikolaos_number)
                 }
                 print(nikolaosNumberList)
                 
-                for  (nikolaous,nikolaos_number) in nikolaosNumberList.enumerated(){
+                for  nikolaos_number in nikolaosNumberList{
                     
                     self.db.collection("locker").document(nikolaos_number).collection("item").getDocuments(){
                         (querySnapshot, err) in
@@ -127,6 +127,6 @@ class ItemModel: ObservableObject {
                 }
             }
         }
-        return "firebase test"
+//        return "firebase test"
     }
 }
