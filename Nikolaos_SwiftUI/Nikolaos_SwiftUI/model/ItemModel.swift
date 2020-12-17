@@ -63,22 +63,25 @@ class ItemModel: ObservableObject {
     
     
 //    募集一覧
-    func read() {
+    func read(){
 //        var r: String = "firebase test"
         db = Firestore.firestore()
-        var offerList:Array<Locker> = []
+        
+
         var nikolaosNumberList: Array<String> = []
         
         db.collection("locker").getDocuments() {
             (querySnapshot, err) in
             if err != nil {
                 print("Error getting documents: (err)")
+                return
             } else {
                 for document in querySnapshot!.documents {
                     let nikolaos_number:String = document.documentID
                     nikolaosNumberList.append(nikolaos_number)
                 }
                 print(nikolaosNumberList)
+                var offerList:Array<Locker> = []
                 
                 for  nikolaos_number in nikolaosNumberList{
                     
@@ -117,7 +120,9 @@ class ItemModel: ObservableObject {
                                 if index == nikolaosNumberList.count-1{
                                     print("全データ受け取り")
                                     print(offerList)
-                                    //　ここに受け取り後の処理を記述
+                                    //　ここに受け取り後の処理を記述してください→フロント
+                                    //  Viewの情報(テキストボックスに出したいならその変数名)などreadの中に入れてもってくるといいと思います
+                                    
                                     
                                     
                                 }
