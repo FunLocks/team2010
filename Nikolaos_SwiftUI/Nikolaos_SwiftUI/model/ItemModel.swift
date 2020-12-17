@@ -137,25 +137,42 @@ class ItemModel: ObservableObject {
     
     // 受取られた物品を削除
    func itemDelete(nikolaosNumber:String, documentID:Array<String>){
-       //
-        //i.itemname,i.count,i.mynumberの入った配列がitems
-        //ロッカー番号ドキュメント
-        //var nikolaosNumber:String = "1017019"
-        for i in documentID{
-            var reduceCount = i.count
-            reduceCount -= 1
-            if reduceCount == 0 {
-                db.collection("locker").document(nikolaosNumber).collection("item").document(i).delete(){ err in
-                    if let err = err{print("削除失敗: \(err)")}
-                }      
-            }else{
-                db.collection("locker").document(nikolaosNumber).collection("item").document(i).updateData(["count":reduceCount]){ err in
-                    if let err = err{print("物品の個数を減らすのに失敗:\n \(err)")}
-                } 
-            }
 
+            //ロッカー番号ドキュメント
+            //var nikolaosNumber:String = "1017019"
+
+            db = Firestore.firestore()
+            for i in documentID{
+                let lockerRef = db.collection("locker").document(nikolaosNumber).collection("item").document(i)
+
+                lockerRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let reduceCount = document.get("count")
+                        print("Document data: (dataDescription)")
+                        guard let reduceCountInt = reduceCount as? Int
+                        else{
+                            print("reduceCountのOptional外し失敗")
+                            return}
+                        if reduceCountInt == 1 {
+                            self.db.collection("locker").document(nikolaosNumber).collection("item").document(i).delete(){ err in
+                                if let err = err{print("削除失敗: (err)")}
+                            }
+                        }else{
+                            self.db.collection("locker").document(nikolaosNumber).collection("item").document(i).updateData(["count":reduceCountInt-1]){ err in
+                                if let err = err{print("物品の個数を減らすのに失敗:\n (err)")}
+                            }
+                        }
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
+            }
             print("func itemDelete\n")
         }
+
+    func itemDeleteTest()->String{
+        itemDelete(nikolaosNumber: "1017000", documentID: ["yFXDQXPICxOuKwhxSyG6"])
+        return "itemDeleteTest"
     }
     
     // 受取物品選択
