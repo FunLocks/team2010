@@ -35,7 +35,7 @@ class AuthModel: ObservableObject {
     }
     
     // 暗証番号取得
-    func readPinCord(nikolaos_number: String){
+    func readPinCord(nikolaos_number: String,completion: @escaping(String) -> Void){
         var ref = db.collection("users").document(nikolaos_number)
         ref.getDocument{(document, error) in
             if let document = document, document.exists {
@@ -46,16 +46,27 @@ class AuthModel: ObservableObject {
                     return
                 }
                 print(pincord)
-                //ここに処理を記述してください 暗証番号pincord: String
                 
+                completion(pincord)
             }
         }
     }
-    
-    func readPinCordTest()->String{
-        readPinCord(nikolaos_number: "1017177")
-        return "readPinCordTest"
+    // ロッカー位置取得
+    func readLocation(nikolaos_number: String,completion: @escaping(String) -> Void){
+        var ref = db.collection("users").document(nikolaos_number)
+        ref.getDocument{(document, error) in
+            if let document = document, document.exists {
+                let locationData = document.get("location")
+                guard let location = locationData as? String
+                else{
+                    print("locationのOptional外し失敗")
+                    return
+                }
+                print(location)
+                
+                completion(location)
+            }
+        }
     }
-    
 }
 

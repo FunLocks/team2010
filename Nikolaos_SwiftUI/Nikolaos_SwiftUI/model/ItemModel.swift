@@ -48,7 +48,6 @@ class ItemModel: ObservableObject {
         }
     }
     
-
     func createTest() -> String{
         var testItem = Item(itemname:"テスト解答", count:3, mynumber:["1017000"])
         var testItem2 = Item(itemname:"100cm定規", count:1, mynumber:[])
@@ -60,7 +59,7 @@ class ItemModel: ObservableObject {
     }
     
 //    募集一覧
-    func read(){
+    func read(completion: @escaping(Array<Locker>?) -> Void){
 //        var r: String = "firebase test"
         db = Firestore.firestore()
         var nikolaosNumberList: Array<String> = []
@@ -112,14 +111,10 @@ class ItemModel: ObservableObject {
                                     
                                 }
                                 if index == nikolaosNumberList.count-1{
-                                    print("全データ受け取り")
-                                    print(offerList)
-                                    //　ここに受け取り後の処理を記述してください→フロント
-                                    //  Viewの情報(テキストボックスに出したいならその変数名)などreadの中に入れてもってくるといいと思います
-                                    
-                                    
-                                    
-                                    
+//                                    print("全データ受け取り")
+//                                    print(offerList)
+                                   
+                                    completion(offerList)
                                 }
                             }
                         }
@@ -131,7 +126,7 @@ class ItemModel: ObservableObject {
     
    
     // 受取物品選択画面の表示
-    func readToSelect(nikolaosNumber:String){
+    func readToSelect(nikolaosNumber:String,completion: @escaping(Array<Item>) -> Void){
         db.collection("locker").document(nikolaosNumber).collection("item").getDocuments(){
             (querySnapshot, err) in
             if let err = err {
@@ -161,16 +156,11 @@ class ItemModel: ObservableObject {
 //                                }
                     if let itemsList = Locker(items:itemList,nikolaos_number:nikolaosNumber){
                         print(itemsList)
+                        completion(itemList)
                         
-                        // ここに受け取り後の処理を記述してください
                     }
                 }
             }
         }
-    }
-    
-    func readToSelectTest()->String{
-        readToSelect(nikolaosNumber: "1017125")
-        return "readToSelectTest"
     }
 }
