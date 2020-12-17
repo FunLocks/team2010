@@ -134,4 +134,16 @@ class ItemModel: ObservableObject {
         }
 //        return "firebase test"
     }
+    
+    // 受取られた物品を削除
+    func itemDelete(){
+        
+    }
+    
+    // 受取物品選択
+    func readToSelect(){
+        ピンさ
+    }
+    
+    
 }
