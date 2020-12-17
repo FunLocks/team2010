@@ -9,6 +9,10 @@ import SwiftUI
 
 struct OfferingListView: View {
     var body: some View {
+//        let model = ItemModel()
+//        var firebaseTest = ItemModel()
+//        Text(firebaseTest.read())
+        
         Text("募集一覧")
     }
 }
