@@ -39,7 +39,7 @@ class ItemModel: ObservableObject {
     func create(items:Array<Item>){
         var nikolaosNumber:String = "1017125" // ログイン時に取得できるので，その変数を使いたい
         for i in items{
-            db.collection("locker").document(nikolaosNumber).collection("item").document(i.itemname).setData([
+            db.collection("locker").document(nikolaosNumber).collection("item").document().setData([
                 "itemname":i.itemname,//"テスト解答2",
                 "count":i.count,//1,
                 "mynumber":i.mynumber
@@ -125,6 +125,7 @@ class ItemModel: ObservableObject {
                                     
                                     
                                     
+                                    
                                 }
                             }
                         }
@@ -135,15 +136,49 @@ class ItemModel: ObservableObject {
 //        return "firebase test"
     }
     
-    // 受取られた物品を削除
-    func itemDelete(){
-        
+    
+    // 受取物品選択画面の表示
+    func readToSelect(nikolaosNumber:String){
+        db.collection("locker").document(nikolaosNumber).collection("item").getDocuments(){
+            (querySnapshot, err) in
+            if let err = err {
+                print("エラー\n")
+                print("Error getting documents: (err)")
+            } else {
+                for item in querySnapshot!.documents {
+                    var itemList:Array<Item> = []
+                    var data = item.data()
+//                                print(data)
+                    guard let items = data as? [String: Any]
+                    else{
+                        print("itemのOptional外し失敗")
+                        return}
+                    
+                    guard let itemName = items["itemname"]as? String else {
+                        print("itemnameのOptional外し失敗")
+                        return }
+                    guard let mynumber = items["mynumber"]as? Array<String>?else {
+                        print("mynumberのOptional外し失敗")
+                        return }
+                    guard let count = items["count"]as? Int else {
+                        print("countのOptional外し失敗")
+                            return }
+                    if let item = Item(itemname:itemName, count: count, mynumber:mynumber){
+                        itemList.append(item)
+                    }
+//                                }
+                    if let itemsList = Locker(items:itemList,nikolaos_number:nikolaosNumber){
+                        print(itemsList)
+                        
+                        // ここに受け取り後の処理を記述してください
+                    }
+                }
+            }
+        }
     }
     
-    // 受取物品選択
-    func readToSelect(){
-        ピンさ
+    func readToSelectTest()->String{
+        readToSelect(nikolaosNumber: "1017125")
+        return "readToSelectTest"
     }
-    
-    
 }
