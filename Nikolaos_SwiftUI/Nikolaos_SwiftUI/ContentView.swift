@@ -40,3 +40,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+extension Notification.Name {
+    static let notifyName = Notification.Name("notifyName")
+}
