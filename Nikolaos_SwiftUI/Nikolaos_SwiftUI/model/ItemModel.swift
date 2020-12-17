@@ -136,18 +136,19 @@ class ItemModel: ObservableObject {
     }
     
     // 受取られた物品を削除
-    func itemDelete(items:Array<Item>), nikolaosNumber:String){
+   func itemDelete(items:Array<Item>, nikolaosNumber:String, documentID:String){
         //i.itemname,i.count,i.mynumberの入った配列がitems
         //ロッカー番号ドキュメント
         //var nikolaosNumber:String = "1017019"
         for i in items{
-            i.count = i.count - 1
-            if count == 0 {
-                db.collection("locker").document(nikolaosNumber).collection("item").document(i.itemname).delete(){ err in
+            var reduceCount = i.count
+            reduceCount -= 1
+            if reduceCount == 0 {
+                db.collection("locker").document(nikolaosNumber).collection("item").document(documentID).delete(){ err in
                     if let err = err{print("削除失敗: \(err)")}
                 }      
             }else{
-                db.collection("locker").document(nikolaosNumber).collection("item").document(i.itemname).updateData(i.count){ err in
+                db.collection("locker").document(nikolaosNumber).collection("item").document(documentID).updateData(["count":reduceCount]){ err in
                     if let err = err{print("物品の個数を減らすのに失敗:\n \(err)")}
                 } 
             }
