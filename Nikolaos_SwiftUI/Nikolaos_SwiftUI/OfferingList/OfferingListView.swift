@@ -9,11 +9,11 @@ import SwiftUI
 
 struct OfferingListView: View {
     var body: some View {
-//        let model = ItemModel()
-//        var firebaseTest = ItemModel()
-//        Text(firebaseTest.itemDeleteTest())
+//        let itemModel = ItemModel()
+        let authModel = AuthModel()
+        Text(authModel.readPinCordTest())
         
-        Text("募集一覧")
+//        Text("募集一覧")
     }
 }
 
