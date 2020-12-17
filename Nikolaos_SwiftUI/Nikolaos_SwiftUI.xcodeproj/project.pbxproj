@@ -17,10 +17,6 @@
 		36AAE21C2586206F00D053D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AAE21B2586206F00D053D1 /* Preview Assets.xcassets */; };
 		5FE05E4C2587903C001291BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FE05E4B2587903C001291BA /* GoogleService-Info.plist */; };
 		5FE05E6F2587975C001291BA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05E6E2587975C001291BA /* ItemModel.swift */; };
-		5FE05EE925896FB8001291BA /* OfferingListViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05EE825896FB8001291BA /* OfferingListViewPresenter.swift */; };
-		5FE05EFD258976AC001291BA /* ReservingListViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05EFC258976AC001291BA /* ReservingListViewPresenter.swift */; };
-		5FE05F0125897735001291BA /* CameraViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05F0025897735001291BA /* CameraViewPresenter.swift */; };
-		5FE05F0425897749001291BA /* OfferViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05F0325897749001291BA /* OfferViewPresenter.swift */; };
 		5FE05F08258977E8001291BA /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05F07258977E8001291BA /* AuthModel.swift */; };
 		E61D4B1ABF92460B620CD8FF /* Pods_Nikolaos_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C292BBF81A8B60D11F854C /* Pods_Nikolaos_SwiftUI.framework */; };
 /* End PBXBuildFile section */
@@ -40,10 +36,6 @@
 		36AAE21D2586206F00D053D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FE05E4B2587903C001291BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FE05E6E2587975C001291BA /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
-		5FE05EE825896FB8001291BA /* OfferingListViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferingListViewPresenter.swift; sourceTree = "<group>"; };
-		5FE05EFC258976AC001291BA /* ReservingListViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservingListViewPresenter.swift; sourceTree = "<group>"; };
-		5FE05F0025897735001291BA /* CameraViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewPresenter.swift; sourceTree = "<group>"; };
-		5FE05F0325897749001291BA /* OfferViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferViewPresenter.swift; sourceTree = "<group>"; };
 		5FE05F07258977E8001291BA /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		5FE05F45258B0566001291BA /* Nikolaos_SwiftUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Nikolaos_SwiftUI copy-Info.plist"; path = "/Users/nittanonohana/team2010/Nikolaos_SwiftUI/Nikolaos_SwiftUI copy-Info.plist"; sourceTree = "<absolute>"; };
 		B81C92B65D6F1E81C1F063A7 /* Pods-Nikolaos_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nikolaos_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				363D467D25884D41002B8A8B /* CameraView.swift */,
-				5FE05F0025897735001291BA /* CameraViewPresenter.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -74,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				363D468325884D63002B8A8B /* OfferingListView.swift */,
-				5FE05EE825896FB8001291BA /* OfferingListViewPresenter.swift */,
 			);
 			path = OfferingList;
 			sourceTree = "<group>";
@@ -83,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				363D467925884D2C002B8A8B /* OfferView.swift */,
-				5FE05F0325897749001291BA /* OfferViewPresenter.swift */,
 			);
 			path = Offer;
 			sourceTree = "<group>";
@@ -92,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				363D468625884DC0002B8A8B /* ReservingListView.swift */,
-				5FE05EFC258976AC001291BA /* ReservingListViewPresenter.swift */,
 			);
 			path = ReservingList;
 			sourceTree = "<group>";
@@ -282,15 +270,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FE05EFD258976AC001291BA /* ReservingListViewPresenter.swift in Sources */,
 				36AAE2172586206E00D053D1 /* ContentView.swift in Sources */,
 				5FE05E6F2587975C001291BA /* ItemModel.swift in Sources */,
 				5FE05F08258977E8001291BA /* AuthModel.swift in Sources */,
 				363D467A25884D2C002B8A8B /* OfferView.swift in Sources */,
-				5FE05F0425897749001291BA /* OfferViewPresenter.swift in Sources */,
 				36AAE2152586206E00D053D1 /* Nikolaos_SwiftUIApp.swift in Sources */,
-				5FE05F0125897735001291BA /* CameraViewPresenter.swift in Sources */,
-				5FE05EE925896FB8001291BA /* OfferingListViewPresenter.swift in Sources */,
 				363D468425884D63002B8A8B /* OfferingListView.swift in Sources */,
 				363D468725884DC0002B8A8B /* ReservingListView.swift in Sources */,
 				363D467E25884D41002B8A8B /* CameraView.swift in Sources */,
