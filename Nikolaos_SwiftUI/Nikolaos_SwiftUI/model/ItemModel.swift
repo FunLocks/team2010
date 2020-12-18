@@ -45,7 +45,9 @@ class ItemModel: ObservableObject {
                 "mynumber":i.mynumber
             ])
             print(i.itemname,i.count,i.mynumber,"を追加")
+            // completion()
         }
+        
     }
     
     func createTest() -> String{

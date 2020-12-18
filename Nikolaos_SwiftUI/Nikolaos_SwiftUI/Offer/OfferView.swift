@@ -8,8 +8,9 @@
 import SwiftUI
 //
 struct OfferView: View {
-    @State var itemname: String = "aaa"
-    @State var count:String = ""
+    @State var itemname: Array<String> = []
+    @State var count:Array<Int> = []
+    @State var nikolaos_count = 0
     @State var ilist:Array<Item> = []
     @State private var selection = 20
     @State var isPresentedSubView:Bool = false
@@ -24,34 +25,34 @@ struct OfferView: View {
         
         NavigationView {
             VStack{
-                
-               
                 List {
                     Text("テスト")
-                    ForEach(0..<itemList.itemList.count){index in
-                        Text(itemList.itemList[index].itemname)
+                    ForEach(0..<nikolaos_count){index in
+                        Text(self.itemname[index])
 //                        Text("test")
-
                     }
                 }
-                
 
                 VStack(alignment: .center) {
+
                     Button(action: {
+                        self.show()
                         if $itemList.itemList.wrappedValue.count != 0{
                             print($itemList.itemList.wrappedValue[0].itemname)
+                            
+                            
                         }else{
                             print("データはなし")
                         }
                     }) {
-                           Text("募集を登録する")
+                           Text("更新")
                                .foregroundColor(Color.white)
                                .padding()
                                .background(Color.blue)
                                .cornerRadius(10)
                        }
                  }
-                .navigationBarTitle("募集を追加", displayMode: .inline)
+                .navigationBarTitle("物品を追加", displayMode: .inline)
                 .navigationBarItems(leading:
                     Button(action: {
 
@@ -85,13 +86,38 @@ struct OfferView: View {
                         }
                 )
             }
-
         }
-
-
     }
 
+
+    func show(){
+        let itemModel = ItemModel()
+        itemModel.readToSelect(nikolaosNumber: "1017177",completion: {(lockerData) in
+            print(lockerData)// Array<Locker>
+            // ここに表示処理を書く
+            var itemname:Array<String> = []
+            var count:Array<Int> = []
+            var data = lockerData
+//            if let data = lockerData{
+                print(type(of:data))
+                for d in data{
+                    itemname.append(d.itemname ?? "データはありません")
+                    count.append(d.count ?? 0)
+                }
+//            }
+            DispatchQueue.main.async {
+                self.itemname = itemname
+                self.count = count
+                self.nikolaos_count = itemname.count
+                print(self.itemname)
+                print(self.count)
+                // print(nikolaos_number.count)
+            }
+        })
+    }
 }
+
+
 
 struct SubView: View {
     @Binding var isPresent: Bool
@@ -143,6 +169,9 @@ struct SubView: View {
                                 if let c = Int(self.count){
                                     if var a:Item = Item(itemname: itemname, count:c , mynumber: []) {
                                         self.itemList.update(item: a)
+                                        var model = ItemModel()
+                                        model.create(items: $itemList.itemList.wrappedValue,nikolaosNumber: "1017177")
+
 //                                        $itemList.itemList.wrappedValue.append(a)
 //                                        print($itemList.itemList.wrappedValue)
                                         self.isPresent = false
