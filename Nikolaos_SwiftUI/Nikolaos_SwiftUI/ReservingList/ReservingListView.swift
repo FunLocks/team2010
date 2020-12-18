@@ -10,8 +10,6 @@ import SwiftUI
 struct ReservingListView: View {
     @State var nikolaos_number:[String] = []
     var body: some View {
-        
-        
         Text("受け取り予定")
         
 //        VStack{
@@ -28,6 +26,11 @@ struct ReservingListView: View {
 //                }
 //            }
 //        }
+        List {
+            ForEach (0..<10) { index in
+                OfferingRowView()
+            }
+        }
     }
     /* func show(){
        
