@@ -11,6 +11,10 @@
 		363D467E25884D41002B8A8B /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D467D25884D41002B8A8B /* CameraView.swift */; };
 		363D468425884D63002B8A8B /* OfferingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D468325884D63002B8A8B /* OfferingListView.swift */; };
 		363D468725884DC0002B8A8B /* ReservingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363D468625884DC0002B8A8B /* ReservingListView.swift */; };
+		36500AFA258B580B00A4D437 /* CameraModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36500AF9258B580B00A4D437 /* CameraModel.swift */; };
+		36500AFD258B5BE600A4D437 /* CameraDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36500AFC258B5BE600A4D437 /* CameraDelegate.swift */; };
+		36500B00258B5EEB00A4D437 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36500AFF258B5EEB00A4D437 /* CameraPreview.swift */; };
+		36500B03258B635300A4D437 /* CameraScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36500B02258B635300A4D437 /* CameraScannerView.swift */; };
 		36AAE2152586206E00D053D1 /* Nikolaos_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AAE2142586206E00D053D1 /* Nikolaos_SwiftUIApp.swift */; };
 		36AAE2172586206E00D053D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AAE2162586206E00D053D1 /* ContentView.swift */; };
 		36AAE2192586206F00D053D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36AAE2182586206F00D053D1 /* Assets.xcassets */; };
@@ -28,6 +32,10 @@
 		363D467D25884D41002B8A8B /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		363D468325884D63002B8A8B /* OfferingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferingListView.swift; sourceTree = "<group>"; };
 		363D468625884DC0002B8A8B /* ReservingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservingListView.swift; sourceTree = "<group>"; };
+		36500AF9258B580B00A4D437 /* CameraModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraModel.swift; sourceTree = "<group>"; };
+		36500AFC258B5BE600A4D437 /* CameraDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraDelegate.swift; sourceTree = "<group>"; };
+		36500AFF258B5EEB00A4D437 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		36500B02258B635300A4D437 /* CameraScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScannerView.swift; sourceTree = "<group>"; };
 		36AAE2112586206E00D053D1 /* Nikolaos_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nikolaos_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36AAE2142586206E00D053D1 /* Nikolaos_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nikolaos_SwiftUIApp.swift; sourceTree = "<group>"; };
 		36AAE2162586206E00D053D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +65,10 @@
 			isa = PBXGroup;
 			children = (
 				363D467D25884D41002B8A8B /* CameraView.swift */,
+				36500B02258B635300A4D437 /* CameraScannerView.swift */,
+				36500AFC258B5BE600A4D437 /* CameraDelegate.swift */,
+				36500AF9258B580B00A4D437 /* CameraModel.swift */,
+				36500AFF258B5EEB00A4D437 /* CameraPreview.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -270,14 +282,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36500B03258B635300A4D437 /* CameraScannerView.swift in Sources */,
 				36AAE2172586206E00D053D1 /* ContentView.swift in Sources */,
 				5FE05E6F2587975C001291BA /* ItemModel.swift in Sources */,
 				5FE05F08258977E8001291BA /* AuthModel.swift in Sources */,
+				36500AFD258B5BE600A4D437 /* CameraDelegate.swift in Sources */,
 				363D467A25884D2C002B8A8B /* OfferView.swift in Sources */,
 				36AAE2152586206E00D053D1 /* Nikolaos_SwiftUIApp.swift in Sources */,
+				36500B00258B5EEB00A4D437 /* CameraPreview.swift in Sources */,
 				363D468425884D63002B8A8B /* OfferingListView.swift in Sources */,
 				363D468725884DC0002B8A8B /* ReservingListView.swift in Sources */,
 				363D467E25884D41002B8A8B /* CameraView.swift in Sources */,
+				36500AFA258B580B00A4D437 /* CameraModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +424,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Nikolaos_SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 6YBW4DU99C;
+				DEVELOPMENT_TEAM = GKGCGLMD73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Nikolaos_SwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -416,7 +432,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Nitta.Nikolaos-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Yoshikawa.Nikolaos-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -431,7 +447,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Nikolaos_SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 6YBW4DU99C;
+				DEVELOPMENT_TEAM = GKGCGLMD73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Nikolaos_SwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -439,7 +455,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Nitta.Nikolaos-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Yoshikawa.Nikolaos-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -515,7 +531,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Nikolaos_SwiftUI/Preview Content\"";
-				DEVELOPMENT_TEAM = 6YBW4DU99C;
+				DEVELOPMENT_TEAM = GKGCGLMD73;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Nikolaos_SwiftUI/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -523,7 +539,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Nitta.Nikolaos-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Yoshikawa.Nikolaos-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
