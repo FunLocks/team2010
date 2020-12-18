@@ -29,7 +29,7 @@ struct ReservingListView: View {
 //            }
 //        }
     }
-    func show(){
+    /* func show(){
        
         let itemModel = ItemModel()
         itemModel.receiveList(mynumber:"1017019", completion: {(offerListData) in
@@ -47,7 +47,7 @@ struct ReservingListView: View {
                 self.nikolaos_number = nikolaos_number
             }
         })
-    }
+    } */
 }
 
 struct ReservingListView_Previews: PreviewProvider {
