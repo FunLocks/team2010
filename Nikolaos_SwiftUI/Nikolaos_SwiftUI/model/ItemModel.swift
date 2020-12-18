@@ -73,10 +73,10 @@ class ItemModel: ObservableObject {
                     let nikolaos_number:String = document.documentID
                     nikolaosNumberList.append(nikolaos_number)
                 }
-                print(nikolaosNumberList)
+//                print(nikolaosNumberList)
                 var offerList:Array<Locker> = []
                 
-                for  nikolaos_number in nikolaosNumberList{
+                for  (nindex,nikolaos_number) in nikolaosNumberList.enumerated(){
                     
                     self.db.collection("locker").document(nikolaos_number).collection("item").getDocuments(){
                         (querySnapshot, err) in
@@ -88,6 +88,7 @@ class ItemModel: ObservableObject {
                                 var itemList:Array<Item> = []
                                 var data = item.data()
 //                                print(data)
+                                print("nindex",nindex)
                                 guard let items = data as? [String: Any]
                                 else{
                                     print("itemのOptional外し失敗")
@@ -106,16 +107,17 @@ class ItemModel: ObservableObject {
                                     itemList.append(item)
                                 }
 //                                }
-                                if let itemsList = Locker(items:itemList,nikolaos_number:nikolaos_number){
-                                    offerList.append(itemsList)
-                                    
+                                
+                                if index == 0{
+//                                    print("ロッカー一つ分取得")
+                                    if let itemsList = Locker(items:itemList,nikolaos_number:nikolaos_number){
+                                        offerList.append(itemsList)
+                                        if nindex == 0{
+                                            completion(offerList)
+                                        }
+                                    }
                                 }
-                                if index == nikolaosNumberList.count-1{
-//                                    print("全データ受け取り")
-//                                    print(offerList)
-                                   
-                                    completion(offerList)
-                                }
+                               
                             }
                         }
                     }
@@ -155,7 +157,7 @@ class ItemModel: ObservableObject {
                     }
 //                                }
                     if let itemsList = Locker(items:itemList,nikolaos_number:nikolaosNumber){
-                        print(itemsList)
+//                        print(itemsList)
                         completion(itemList)
                         
                     }
@@ -163,4 +165,76 @@ class ItemModel: ObservableObject {
             }
         }
     }
+    // 引き取り予定一覧
+      func receiveList(mynumber:String,completion: @escaping(Array<Locker>) -> Void){
+
+          //var r: String = "firebase test"
+          db = Firestore.firestore()
+          
+          //ロッカー番号(学籍番号)の配列
+          var nikolaosNumberList: Array<String> = []
+          var offerList:Array<Locker> = []
+          
+          db.collection("locker").getDocuments() {
+              (querySnapshot, err) in
+              if err != nil {
+                  print("Error getting documents: (err)")
+                  return
+              } else {
+                  for document in querySnapshot!.documents {
+                      let nikolaos_number:String = document.documentID
+                      //nロッカー目のロッカー番号を配列に入れる
+                      nikolaosNumberList.append(nikolaos_number)
+                  }
+//                  print(nikolaosNumberList)
+                  
+                  for  (nindex,nikolaos_number) in nikolaosNumberList.enumerated(){
+                      
+                      //itemコレクションのなかで，"mynumber"フィールドのなかに引数のmynumberが入っているドキュメントを検索
+                      self.db.collection("locker").document(nikolaos_number).collection("item").whereField("mynumber", arrayContains: mynumber).getDocuments(){
+                          (querySnapshot, err) in
+                          if let err = err {
+                              print("エラー\n")
+                              print("Error getting documents: (err)")
+                          } else {
+                            var itemList:Array<Item> = []
+                            for (ind,item) in querySnapshot!.documents.enumerated() {
+  
+
+                                  var data = item.data()
+//                                  print("物品1個のデータ")
+//                                  print(data)
+                                guard let itemname = data["itemname"] as? String else{
+                                    print(data["itemname"],type(of: data["itemname"]))
+                                    print("itemnameのOptional外し失敗")
+                                    return
+                                }
+                                guard let count = data["count"] as? Int else{
+                                    print("countのOptional外し失敗")
+                                    return
+                                }
+                                guard let mynumber = data["mynumber"] as? Array<String>? else{
+                                    print("mynumberのOptional外し失敗")
+                                    return
+                                }
+                                
+                                if let one_item:Item = Item(itemname:itemname, count:count, mynumber:[]){
+                                    itemList.append(one_item)
+                                }
+                                if ind == 0{
+//                                    print("ロッカー一つ分取得")
+                                    if let itemsList = Locker(items:itemList,nikolaos_number:nikolaos_number){
+                                        offerList.append(itemsList)
+                                        if nindex == 0{
+                                            completion(offerList)
+                                        }
+                                    }
+                                }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
 }
