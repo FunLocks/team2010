@@ -175,10 +175,4 @@ class ItemModel: ObservableObject {
         return "itemDeleteTest"
     }
     
-    // 受取物品選択
-    func readToSelect(){
-        ピンさ
-    }
-    
-    
 }
