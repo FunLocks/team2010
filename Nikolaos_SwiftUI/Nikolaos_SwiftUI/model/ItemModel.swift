@@ -36,10 +36,10 @@ class ItemModel: ObservableObject {
         self.db = Firestore.firestore()
     }
 //   募集新規登録
-    func create(items:Array<Item>){
-        var nikolaosNumber:String = "1017125" // ログイン時に取得できるので，その変数を使いたい
+    func create(items:Array<Item>, nikolaosNumber:String){
+//        var nikolaosNumber:String = "1017125" // ログイン時に取得できるので，その変数を使いたい
         for i in items{
-            db.collection("locker").document(nikolaosNumber).collection("item").document(i.itemname).setData([
+            db.collection("locker").document(nikolaosNumber).collection("item").document().setData([
                 "itemname":i.itemname,//"テスト解答2",
                 "count":i.count,//1,
                 "mynumber":i.mynumber
@@ -48,28 +48,21 @@ class ItemModel: ObservableObject {
         }
     }
     
-    
-//    create 使い方
-//    func setTest() -> String{
-//        var testItem = Item(itemname:"テスト解答", count:3, mynumber:["1017000"])
-//        var testItem2 = Item(itemname:"100cm定規", count:1, mynumber:[])
-//        var testItemList:Array<Item> = []
-//        testItemList.append(testItem!)
-//        testItemList.append(testItem2!)
-//        create(items:testItemList)
-//        return "set test"
-//    }
-//
-    
+    func createTest() -> String{
+        var testItem = Item(itemname:"テスト解答", count:3, mynumber:["1017000"])
+        var testItem2 = Item(itemname:"100cm定規", count:1, mynumber:[])
+        var testItemList:Array<Item> = []
+        testItemList.append(testItem!)
+        testItemList.append(testItem2!)
+        create(items:testItemList, nikolaosNumber: "1017177")
+        return "set test"
+    }
     
 //    募集一覧
-    func read(){
+    func read(completion: @escaping(Array<Locker>?) -> Void){
 //        var r: String = "firebase test"
         db = Firestore.firestore()
-        
-
         var nikolaosNumberList: Array<String> = []
-        
         db.collection("locker").getDocuments() {
             (querySnapshot, err) in
             if err != nil {
@@ -80,10 +73,10 @@ class ItemModel: ObservableObject {
                     let nikolaos_number:String = document.documentID
                     nikolaosNumberList.append(nikolaos_number)
                 }
-                print(nikolaosNumberList)
+//                print(nikolaosNumberList)
                 var offerList:Array<Locker> = []
                 
-                for  nikolaos_number in nikolaosNumberList{
+                for  (nindex,nikolaos_number) in nikolaosNumberList.enumerated(){
                     
                     self.db.collection("locker").document(nikolaos_number).collection("item").getDocuments(){
                         (querySnapshot, err) in
@@ -95,6 +88,7 @@ class ItemModel: ObservableObject {
                                 var itemList:Array<Item> = []
                                 var data = item.data()
 //                                print(data)
+                                print("nindex",nindex)
                                 guard let items = data as? [String: Any]
                                 else{
                                     print("itemのOptional外し失敗")
@@ -113,19 +107,17 @@ class ItemModel: ObservableObject {
                                     itemList.append(item)
                                 }
 //                                }
-                                if let itemsList = Locker(items:itemList,nikolaos_number:nikolaos_number){
-                                    offerList.append(itemsList)
-                                    
+                                
+                                if index == 0{
+//                                    print("ロッカー一つ分取得")
+                                    if let itemsList = Locker(items:itemList,nikolaos_number:nikolaos_number){
+                                        offerList.append(itemsList)
+                                        if nindex == 0{
+                                            completion(offerList)
+                                        }
+                                    }
                                 }
-                                if index == nikolaosNumberList.count-1{
-                                    print("全データ受け取り")
-                                    print(offerList)
-                                    //　ここに受け取り後の処理を記述してください→フロント
-                                    //  Viewの情報(テキストボックスに出したいならその変数名)などreadの中に入れてもってくるといいと思います
-                                    
-                                    
-                                    
-                                }
+                               
                             }
                         }
                     }
@@ -175,4 +167,117 @@ class ItemModel: ObservableObject {
         return "itemDeleteTest"
     }
     
+    }
+    
+   
+    // 受取物品選択画面の表示
+    func readToSelect(nikolaosNumber:String,completion: @escaping(Array<Item>) -> Void){
+        db.collection("locker").document(nikolaosNumber).collection("item").getDocuments(){
+            (querySnapshot, err) in
+            if let err = err {
+                print("エラー\n")
+                print("Error getting documents: (err)")
+            } else {
+                for item in querySnapshot!.documents {
+                    var itemList:Array<Item> = []
+                    var data = item.data()
+//                                print(data)
+                    guard let items = data as? [String: Any]
+                    else{
+                        print("itemのOptional外し失敗")
+                        return}
+                    guard let itemName = items["itemname"]as? String else {
+                        print("itemnameのOptional外し失敗")
+                        return }
+                    guard let mynumber = items["mynumber"]as? Array<String>?else {
+                        print("mynumberのOptional外し失敗")
+                        return }
+                    guard let count = items["count"]as? Int else {
+                        print("countのOptional外し失敗")
+                            return }
+                    if let item = Item(itemname:itemName, count: count, mynumber:mynumber){
+                        itemList.append(item)
+                    }
+//                                }
+                    if let itemsList = Locker(items:itemList,nikolaos_number:nikolaosNumber){
+//                        print(itemsList)
+                        completion(itemList)
+                        
+                    }
+                }
+            }
+        }
+    }
+    // 引き取り予定一覧
+      func receiveList(mynumber:String,completion: @escaping(Array<Locker>) -> Void){
+
+          //var r: String = "firebase test"
+          db = Firestore.firestore()
+          
+          //ロッカー番号(学籍番号)の配列
+          var nikolaosNumberList: Array<String> = []
+          var offerList:Array<Locker> = []
+          
+          db.collection("locker").getDocuments() {
+              (querySnapshot, err) in
+              if err != nil {
+                  print("Error getting documents: (err)")
+                  return
+              } else {
+                  for document in querySnapshot!.documents {
+                      let nikolaos_number:String = document.documentID
+                      //nロッカー目のロッカー番号を配列に入れる
+                      nikolaosNumberList.append(nikolaos_number)
+                  }
+//                  print(nikolaosNumberList)
+                  
+                  for  (nindex,nikolaos_number) in nikolaosNumberList.enumerated(){
+                      
+                      //itemコレクションのなかで，"mynumber"フィールドのなかに引数のmynumberが入っているドキュメントを検索
+                      self.db.collection("locker").document(nikolaos_number).collection("item").whereField("mynumber", arrayContains: mynumber).getDocuments(){
+                          (querySnapshot, err) in
+                          if let err = err {
+                              print("エラー\n")
+                              print("Error getting documents: (err)")
+                          } else {
+                            var itemList:Array<Item> = []
+                            for (ind,item) in querySnapshot!.documents.enumerated() {
+  
+
+                                  var data = item.data()
+//                                  print("物品1個のデータ")
+//                                  print(data)
+                                guard let itemname = data["itemname"] as? String else{
+                                    print(data["itemname"],type(of: data["itemname"]))
+                                    print("itemnameのOptional外し失敗")
+                                    return
+                                }
+                                guard let count = data["count"] as? Int else{
+                                    print("countのOptional外し失敗")
+                                    return
+                                }
+                                guard let mynumber = data["mynumber"] as? Array<String>? else{
+                                    print("mynumberのOptional外し失敗")
+                                    return
+                                }
+                                
+                                if let one_item:Item = Item(itemname:itemname, count:count, mynumber:[]){
+                                    itemList.append(one_item)
+                                }
+                                if ind == 0{
+//                                    print("ロッカー一つ分取得")
+                                    if let itemsList = Locker(items:itemList,nikolaos_number:nikolaos_number){
+                                        offerList.append(itemsList)
+                                        if nindex == 0{
+                                            completion(offerList)
+                                        }
+                                    }
+                                }
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
 }
