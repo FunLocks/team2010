@@ -29,10 +29,10 @@ struct ReservingListView: View {
 //            }
 //        }
     }
-    func show(){
+    /* func show(){
        
         let itemModel = ItemModel()
-        itemModel.receiveList(mynumber:"1017019",completion: {(offerListData) in
+        itemModel.receiveList(mynumber:"1017019", completion: {(offerListData) in
             print(offerListData)// Array<Locker>
             // ここに表示処理を書く
             var nikolaos_number:Array<String> = []
@@ -47,7 +47,7 @@ struct ReservingListView: View {
                 self.nikolaos_number = nikolaos_number
             }
         })
-    }
+    } */
 }
 
 struct ReservingListView_Previews: PreviewProvider {
