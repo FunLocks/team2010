@@ -47,7 +47,9 @@ class ItemModel: ObservableObject {
                 "mynumber":i.mynumber
             ])
             print(i.itemname,i.count,i.mynumber,"を追加")
+            // completion()
         }
+        
     }
     
     func createTest() -> String {
@@ -180,8 +182,9 @@ class ItemModel: ObservableObject {
                 print("エラー\n")
                 print("Error getting documents: (err)")
             } else {
-                for item in querySnapshot!.documents {
-                    var itemList:Array<Item> = []
+                var itemList:Array<Item> = []
+                for (nindex,item) in querySnapshot!.documents.enumerated() {
+                    
                     var data = item.data()
 //                                print(data)
                     guard let items = data as? [String: Any]
@@ -197,15 +200,20 @@ class ItemModel: ObservableObject {
                     guard let count = items["count"]as? Int else {
                         print("countのOptional外し失敗")
                             return }
+                    
                     if let item = Item(itemname:itemName, count: count, mynumber:mynumber){
                         itemList.append(item)
+                        print(itemList)
                     }
+//                    completion(itemList)
 //                                }
-                    if let itemsList = Locker(items:itemList,nikolaos_number:nikolaosNumber){
+//                    if let itemsList = Locker(items:itemList,nikolaos_number:nikolaosNumber){
 //                        print(itemsList)
+//                    print("nindex",querySnapshot!.documents.count-1)
+                    if nindex == querySnapshot!.documents.count-1{
                         completion(itemList)
-                        
                     }
+
                 }
             }
         }
