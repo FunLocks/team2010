@@ -23,6 +23,7 @@
 		5FE05E6F2587975C001291BA /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05E6E2587975C001291BA /* ItemModel.swift */; };
 		5FE05F08258977E8001291BA /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE05F07258977E8001291BA /* AuthModel.swift */; };
 		E61D4B1ABF92460B620CD8FF /* Pods_Nikolaos_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C292BBF81A8B60D11F854C /* Pods_Nikolaos_SwiftUI.framework */; };
+		9C05C58F25885B1900C8C822 /* OfferingRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C05C58E25885B1900C8C822 /* OfferingRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		5FE05F07258977E8001291BA /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
 		5FE05F45258B0566001291BA /* Nikolaos_SwiftUI copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Nikolaos_SwiftUI copy-Info.plist"; path = "/Users/nittanonohana/team2010/Nikolaos_SwiftUI/Nikolaos_SwiftUI copy-Info.plist"; sourceTree = "<absolute>"; };
 		B81C92B65D6F1E81C1F063A7 /* Pods-Nikolaos_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nikolaos_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-Nikolaos_SwiftUI/Pods-Nikolaos_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		9C05C58E25885B1900C8C822 /* OfferingRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferingRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				363D468325884D63002B8A8B /* OfferingListView.swift */,
+				9C05C58E25885B1900C8C822 /* OfferingRowView.swift */,
 			);
 			path = OfferingList;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36500B03258B635300A4D437 /* CameraScannerView.swift in Sources */,
+				9C05C58F25885B1900C8C822 /* OfferingRowView.swift in Sources */,
 				36AAE2172586206E00D053D1 /* ContentView.swift in Sources */,
 				5FE05E6F2587975C001291BA /* ItemModel.swift in Sources */,
 				5FE05F08258977E8001291BA /* AuthModel.swift in Sources */,
