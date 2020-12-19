@@ -11,6 +11,7 @@ struct OfferView: View {
     @State var itemname: Array<String> = []
     @State var count:Array<Int> = []
     @State var nikolaos_count = 0
+    @State var text = ""
     @State var ilist:Array<Item> = []
     @State private var selection = 20
     @State var isPresentedSubView:Bool = false
@@ -25,25 +26,20 @@ struct OfferView: View {
         
         NavigationView {
             VStack{
-                List {
-                    Text("テスト")
-                    ForEach(0..<nikolaos_count){index in
-                        Text(self.itemname[index])
-//                        Text("test")
-                    }
-                }
 
+                
+                List {
+                    Text(self.text)
+                    Text("\(nikolaos_count)個のアイテムが登録されています")
+                    ForEach(0..<nikolaos_count){index in
+                        Text("\(self.itemname[index])")
+                    }
+                }.listStyle(PlainListStyle())
+                
                 VStack(alignment: .center) {
 
                     Button(action: {
                         self.show()
-                        if $itemList.itemList.wrappedValue.count != 0{
-                            print($itemList.itemList.wrappedValue[0].itemname)
-                            
-                            
-                        }else{
-                            print("データはなし")
-                        }
                     }) {
                            Text("更新")
                                .foregroundColor(Color.white)
@@ -75,13 +71,13 @@ struct OfferView: View {
                             ) {
                                 SubView(isPresent: self.$isPresentedSubView, itemList: self.itemList)
                             }
-                            Spacer()
-                            Button(action: {
-
-                            }) {
-//                                Image(systemName: "plus")
-                                Text("編集")
-                            }
+//                            Spacer()
+//                            Button(action: {
+//
+//                            }) {
+////                                Image(systemName: "plus")
+//                                Text("編集")
+//                            }
 
                         }
                 )
@@ -93,25 +89,26 @@ struct OfferView: View {
     func show(){
         let itemModel = ItemModel()
         itemModel.readToSelect(nikolaosNumber: "1017177",completion: {(lockerData) in
-            print(lockerData)// Array<Locker>
+//            print(lockerData)// Array<Item>
             // ここに表示処理を書く
+            
             var itemname:Array<String> = []
             var count:Array<Int> = []
             var data = lockerData
-//            if let data = lockerData{
-                print(type(of:data))
-                for d in data{
-                    itemname.append(d.itemname ?? "データはありません")
-                    count.append(d.count ?? 0)
-                }
-//            }
+            print("viewまできた")
+            print(data)
+            for d in data{
+                itemname.append(d.itemname)
+                count.append(d.count)
+            }
             DispatchQueue.main.async {
                 self.itemname = itemname
                 self.count = count
                 self.nikolaos_count = itemname.count
-                print(self.itemname)
-                print(self.count)
-                // print(nikolaos_number.count)
+                self.text = "更新しました"
+                print("self.itemname",self.itemname)
+                print("self.count",self.count)
+
             }
         })
     }
