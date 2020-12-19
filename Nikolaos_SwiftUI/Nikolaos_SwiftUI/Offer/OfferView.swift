@@ -18,28 +18,32 @@ struct OfferView: View {
 
     @ObservedObject var itemList=ViewModel()
 
-    func show(ilist:Array<Item>){
-        self.ilist = ilist
-    }
+//    func show(ilist:Array<Item>){
+//        self.ilist = ilist
+//    }
     
     var body: some View {
         
         NavigationView {
             VStack{
-
-                
+                Text(self.text)
+                Text("\(nikolaos_count)個のアイテムが登録されています")
                 List {
-                    Text(self.text)
-                    Text("\(nikolaos_count)個のアイテムが登録されています")
+                    if nikolaos_count>0{
                     ForEach(0..<nikolaos_count){index in
-                        Text("\(self.itemname[index])")
+                        HStack{
+                            Text("\(self.itemname[index])")
+                            Spacer()
+                            Text("\(self.count[index])個")
+                        }
+                    }
                     }
                 }.listStyle(PlainListStyle())
                 
                 VStack(alignment: .center) {
 
                     Button(action: {
-                        self.show()
+                            self.show()
                     }) {
                            Text("更新")
                                .foregroundColor(Color.white)
@@ -90,7 +94,6 @@ struct OfferView: View {
         let itemModel = ItemModel()
         itemModel.readToSelect(nikolaosNumber: "1017177",completion: {(lockerData) in
 //            print(lockerData)// Array<Item>
-            // ここに表示処理を書く
             
             var itemname:Array<String> = []
             var count:Array<Int> = []
@@ -104,7 +107,7 @@ struct OfferView: View {
             DispatchQueue.main.async {
                 self.itemname = itemname
                 self.count = count
-                self.nikolaos_count = itemname.count
+                self.nikolaos_count = self.itemname.count
                 self.text = "更新しました"
                 print("self.itemname",self.itemname)
                 print("self.count",self.count)
@@ -112,6 +115,8 @@ struct OfferView: View {
             }
         })
     }
+    
+   
 }
 
 
@@ -156,7 +161,6 @@ struct SubView: View {
                         Button(action: {
                             self.isPresent = false
 //                            self.presentationMode.wrappedValue.dismiss()
-
                         }){
                             Text("キャンセル")
                         }
@@ -165,9 +169,9 @@ struct SubView: View {
                             Button(action: {
                                 if let c = Int(self.count){
                                     if var a:Item = Item(itemname: itemname, count:c , mynumber: []) {
-                                        self.itemList.update(item: a)
+//                                        self.itemList.update(item: a)
                                         var model = ItemModel()
-                                        model.create(items: $itemList.itemList.wrappedValue,nikolaosNumber: "1017177")
+                                        model.create(items: [a],nikolaosNumber: "1017177")
 
 //                                        $itemList.itemList.wrappedValue.append(a)
 //                                        print($itemList.itemList.wrappedValue)
@@ -192,6 +196,7 @@ struct SubView: View {
     }
 }
 
+
 struct OfferView_Previews: PreviewProvider {
     static var previews: some View {
         OfferView()
@@ -201,7 +206,7 @@ struct OfferView_Previews: PreviewProvider {
 final class ViewModel: ObservableObject {
     @Published var itemList:Array<Item> = []
     
-    func update(item:Item) {
-        itemList.append(item)
-    }
+//    func update(item:Item) {
+//        itemList.append(item)
+//    }
 }
